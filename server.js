@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 const config = require('./config');
 const index = require('./routes/index');
+const dashboard = require('./routes/admin/dashboard');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.set('view engine', 'hbs');
 
 // Add routes
 app.use('/', index);
+app.use('/admin', dashboard);
 
 // Launch the server
 app.listen(config.port, () => {
